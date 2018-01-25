@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/font-awesome/css/font-awesome.min.css">
+
+    <link href="http://localhost:8000/static/custom.css" rel="stylesheet">
+
+
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-112326394-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Olivier Guiter" />
+<meta name="description" content="Dans ce premier article, j&#39;aimerais vous expliquer comment installer un blog statique tel que ... celui ci ! Mes critéres initiaux étaient simples: Maintenance minimale, Integration avec github.io Python ou Php Markdown pour les articles Commentaires Après avoir regardé differentes options ( Jekyll, Sculpin, j&#39;ai opté pour pelican Un repo GitHub pour …" />
+<meta name="keywords" content="#pelican, #blog">
+
+<meta property="og:site_name" content="Olivier's Tech Blog"/>
+<meta property="og:title" content="Installation d&#39;un blog statique sous Pelican"/>
+<meta property="og:description" content="Dans ce premier article, j&#39;aimerais vous expliquer comment installer un blog statique tel que ... celui ci ! Mes critéres initiaux étaient simples: Maintenance minimale, Integration avec github.io Python ou Php Markdown pour les articles Commentaires Après avoir regardé differentes options ( Jekyll, Sculpin, j&#39;ai opté pour pelican Un repo GitHub pour …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://localhost:8000/installation-dun-blog-statique-sous-pelican.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2018-01-21 14:00:00+01:00"/>
+<meta property="article:modified_time" content="2018-01-21 14:10:00+01:00"/>
+<meta property="article:author" content="http://localhost:8000/author/olivier-guiter.html">
+<meta property="article:section" content="General"/>
+<meta property="article:tag" content="#pelican"/>
+<meta property="article:tag" content="#blog"/>
+<meta property="og:image" content="img/logo_site.jpg">
+
+  <title>Olivier's Tech Blog &ndash; Installation d&#39;un blog statique sous Pelican</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://localhost:8000">
+        <img src="img/logo_site.jpg" alt="" title="">
+      </a>
+      <h1><a href="http://localhost:8000"></a></h1>
+
+<p>Et pour quelques octets de plus...</p>
+
+      <ul class="social">
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/oguiter" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/oguiter" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="http://localhost:8000">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+      <a href="/sitemap.xml">Sitemap</a>
+      <a href="/about.html">About me</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="installation-dun-blog-statique-sous-pelican">Installation d'un blog statique sous Pelican</h1>
+    <p>
+          Posted on dim. 21 janvier 2018 in <a href="http://localhost:8000/category/general.html">General</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Dans ce premier article, j'aimerais vous expliquer comment installer un blog statique tel que ... celui ci !</p>
+<p>Mes critéres initiaux étaient simples:</p>
+<ul>
+<li>Maintenance minimale,</li>
+<li>Integration avec <a href="https://pages.github.com/">github.io</a></li>
+<li>Python ou Php</li>
+<li>Markdown pour les articles</li>
+<li>Commentaires</li>
+</ul>
+<p>Après avoir regardé differentes options ( <a href="jekyllrb.com">Jekyll</a>, <a href="sculpin.io">Sculpin</a>, j'ai opté pour <a href="getpelican.com">pelican</a></p>
+<h3><font color=#669900><em>Un repo GitHub pour votre blog</em></font></h3>
+<p>Il s'agit pour moi de créer ma page perso dans GitHub. J'ai donc commencé par créer un repo <a href="oguiter.github.io">oguiter.github.io</a>, <code>oguiter</code> étant mon nom de compte GitHub. Le source complet est là: <a href="https://github.com/oguiter/oguiter.github.io/">https://github.com/oguiter/oguiter.github.io/</a>.</p>
+<h3><font color=#669900><em>Installation Pelican</em></font></h3>
+<p>Personnellement, j'ai opté pour l'utilisation de <code>virtualenv</code> sous python. Cela va isoler votre developpement un peu (j'ai dis "un peu") dans l'esprit Docker... Cette notion d' <em>environnement virtuel</em> va permettre la creation d'un dossier séparé avec toute la cuisine python ainsi que les <em>site-packages</em>. Un peu plus d'infos là: <a href="https://virtualenv.pypa.io/en/stable/">virtualenv site</a></p>
+<p>C'est parti !</p>
+<div class="highlight"><pre><span></span>pip install virtualenv
+<span class="nb">cd</span> mkdir -p ~/Devel/monblog
+<span class="nb">cd</span> ~/Devel/monblog
+virtualenv env
+</pre></div>
+
+
+<p>Tout est prêt, il ne reste qu'à activer l'environnement virtuel</p>
+<div class="highlight"><pre><span></span><span class="nb">source</span> env/bin/activate
+</pre></div>
+
+
+<p>Une petit vérification s'impose concernant notre <code>nouveau</code> binaire python</p>
+<div class="highlight"><pre><span></span><span class="nv">$which</span> python
+<span class="o">(</span>env<span class="o">)</span> <span class="o">[</span><span class="m">10</span>:56<span class="o">][</span>oguiter:~<span class="o">]</span>$ which python
+/home/oguiter/test2/bin/python
+</pre></div>
+
+
+<p><img
+src="/img/icon-green-check.png" width="20">
+Remarque: Vous pouvez spécifier une version particuliere de python avec la commande:</p>
+<div class="highlight"><pre><span></span>virtualenv -p /usr/bin/python2.7 env27
+</pre></div>
+
+
+<p>Il est temps d'installer <code>pelican</code> (et <code>Mardown</code> bien sûr !)</p>
+<div class="highlight"><pre><span></span>pip install pelican
+pip install Markdown
+</pre></div>
+
+
+<h3><font color=#669900><em>Un petit blog ?</em></font></h3>
+<p>On va s'appuyer sur le modéle par defaut, puis nous essayerons de le faire évoluer...</p>
+<p>Commençons par lancer le wizard de service:</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Devel/monblog
+pelican-quickstart
+</pre></div>
+
+
+<p>Bon, il faut répondre quand même à quelques questions (il ne peut pas tout faire tout seul, hein ?!)</p>
+<div class="highlight"><pre><span></span><span class="o">(</span>env<span class="o">)</span> <span class="o">[</span><span class="m">14</span>:18<span class="o">][</span>oguiter:~/Devel/GITHUB/Blog<span class="o">]</span>$ pelican-quickstart 
+Welcome to pelican-quickstart v3.7.1.
+
+This script will <span class="nb">help</span> you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files
+needed by Pelican.
+
+&gt; Where <span class="k">do</span> you want to create your new web site? <span class="o">[</span>.<span class="o">]</span> .
+&gt; What will be the title of this web site? Mon Blog
+&gt; Who will be the author of this web site? Olivier Guiter
+&gt; What will be the default language of this web site? <span class="o">[</span>en<span class="o">]</span> fr
+&gt; Do you want to specify a URL prefix? e.g., http://example.com   <span class="o">(</span>Y/n<span class="o">)</span> Y
+&gt; What is your URL prefix? <span class="o">(</span>see above example<span class="p">;</span> no trailing slash<span class="o">)</span> http://username.github.io 
+&gt; Do you want to <span class="nb">enable</span> article pagination? <span class="o">(</span>Y/n<span class="o">)</span> Y
+&gt; How many articles per page <span class="k">do</span> you want? <span class="o">[</span><span class="m">10</span><span class="o">]</span> 
+&gt; What is your <span class="nb">time</span> zone? <span class="o">[</span>Europe/Paris<span class="o">]</span> 
+&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? <span class="o">(</span>Y/n<span class="o">)</span> Y
+&gt; Do you want an auto-reload <span class="p">&amp;</span> simpleHTTP script to assist with theme and site development? <span class="o">(</span>Y/n<span class="o">)</span> Y
+&gt; Do you want to upload your website using FTP? <span class="o">(</span>y/N<span class="o">)</span> N
+&gt; Do you want to upload your website using SSH? <span class="o">(</span>y/N<span class="o">)</span> N
+&gt; Do you want to upload your website using Dropbox? <span class="o">(</span>y/N<span class="o">)</span> N
+&gt; Do you want to upload your website using S3? <span class="o">(</span>y/N<span class="o">)</span> N
+&gt; Do you want to upload your website using Rackspace Cloud Files? <span class="o">(</span>y/N<span class="o">)</span> N
+&gt; Do you want to upload your website using GitHub Pages? <span class="o">(</span>y/N<span class="o">)</span> Y
+&gt; Is this your personal page <span class="o">(</span>username.github.io<span class="o">)</span>? <span class="o">(</span>y/N<span class="o">)</span> Y
+Done. Your new project is available at /home/oguiter/Devel/GITHUB/Blog
+</pre></div>
+
+
+<p>(je rappelle que l'objectif est de mettre en place un blog sous GitHub...)</p>
+<h3><font color=#669900><em>Le premier post ?</em></font></h3>
+<p>Une fois la structure en place, profitons-en pour créer notre premier post.</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> ~/monblog
+nano lepremier.md
+</pre></div>
+
+
+<p>et créez le premier post:</p>
+<div class="highlight"><pre><span></span><span class="nv">Title</span><span class="s s-Atom">:</span> <span class="nv">Mon</span> <span class="s s-Atom">premier</span> <span class="nv">Article</span>
+<span class="nv">Date</span><span class="s s-Atom">:</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">22</span> <span class="mi">12</span><span class="s s-Atom">:</span><span class="mi">00</span>
+<span class="nv">Category</span><span class="s s-Atom">:</span> <span class="nv">Blog</span>
+<span class="nv">Tags</span><span class="s s-Atom">:</span> <span class="s s-Atom">#blog</span><span class="p">,</span> <span class="s s-Atom">#test</span><span class="p">,</span> <span class="s s-Atom">#general</span>
+
+<span class="nv">Ceci</span> <span class="s s-Atom">est</span> <span class="s s-Atom">mon</span> <span class="mi">1</span><span class="s s-Atom">er</span> <span class="s s-Atom">port</span> <span class="s s-Atom">ou</span> <span class="nf">article</span> <span class="o">:-</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Il est temps de vérifier tout ceci, en generant les pages du site (qui seront générées dans le repertoire <code>output</code>)</p>
+<div class="highlight"><pre><span></span>make html
+</pre></div>
+
+
+<h3><font color=#669900><em>Test en local</em></font></h3>
+<p>Nous utilisons pour ça le serveur interne de <code>pelican</code>:</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> ~/monblog
+make serve
+</pre></div>
+
+
+<p>Et vous pouvez ouvrir l'adresse http://localhost:8000/ dans votre navigateur habituel.</p>
+<h3><font color=#669900><em>Publier votre site... to the world !</em></font></h3>
+<p>J'ai choisi de ne mettre dans mon repo username.github.io QUE les pages relatives au site et je sauve les sources dans un autre repo.
+Donc, même cela semble un peu plus complexe, on gange en lisibilité et efficacité.
+Nous allons utiliser <code>ghp-import</code> qui va nous permettre de transferer le repertoire output dans son propore repo.</p>
+<div class="highlight"><pre><span></span>pip install ghp-import
+</pre></div>
+
+
+<p>On va utiliser le .gitignore disponible ici https://github.com/getpelican/pelican-blog/blob/master/.gitignore
+on crée le repo local</p>
+<div class="highlight"><pre><span></span>git init
+</pre></div>
+
+
+<p>On se connecte au repo remote:</p>
+<div class="highlight"><pre><span></span>git remote add origin https://github.com/username/username.github.io.git
+git remote -v
+</pre></div>
+
+
+<p>Et on crée une branche spécifique à mes publications...</p>
+<div class="highlight"><pre><span></span>git checkout -b mon_blog
+</pre></div>
+
+
+<p>Il est temps de déployer le blog !
+2 possibilités:</p>
+<ul>
+<li>on a fait des modifications sur les sources:</li>
+</ul>
+<div class="highlight"><pre><span></span>git add .
+git commit -a -m <span class="s2">&quot;Mon message de commit&quot;</span>
+git push -u origin mon_blog
+</pre></div>
+
+
+<ul>
+<li>on a créé/modifié un ou des articles:</li>
+</ul>
+<div class="highlight"><pre><span></span>make html
+ghp-import output -r origin -b master
+git push origin master
+git checkout mon_blog
+</pre></div>
+
+
+<h3><font color=#669900><em>Conclusion</em></font></h3>
+<p>Il s'agit là d'un premier article, fortement inspiré de plusieurs pages differentes, où j'ai essayé d'apporter ma touche personnelle.
+La forme et le fond de cette page vont encore évoluer, il y a pas mal de choses à faire...</p>
+<p>Olivier</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://localhost:8000/tag/pelican.html">#pelican</a>
+      <a href="http://localhost:8000/tag/blog.html">#blog</a>
+    </p>
+  </div>
+
+
+
+    <div class="addthis_relatedposts_inline">
+
+
+</article>
+
+    <footer>
+<p>
+  &copy; Olivier Guiter 2017 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+         src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Olivier's Tech Blog ",
+  "url" : "http://localhost:8000",
+  "image": "img/logo_site.jpg",
+  "description": "Olivier Guiter's Thoughts and Writings"
+}
+</script>
+
+</body>
+</html>
