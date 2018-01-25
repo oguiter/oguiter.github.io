@@ -4,11 +4,25 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Olivier Guiter'
 SITENAME = "Olivier's Tech Blog"
-SITEURL = ''
+
+SITEURL = 'http://localhost:8000'
 RELATIVE_URLS = False
 SITESUBTITLE = 'Et pour quelques octets de plus...'
+SITEDESCRIPTION = '%s\'s Thoughts and Writings' % AUTHOR
 SITELOGO = 'img/logo_site.jpg'
-PATH = 'content'
+#BROWSER_COLOR = '#333333'
+#PYGMENTS_STYLE = 'monokai'
+
+USE_FOLDER_AS_CATEGORY = False
+MAIN_MENU = True
+HOME_HIDE_TAGS = False
+
+MENUITEMS = (('Archives', '/archives.html'),
+             ('Categories', '/categories.html'),
+             ('Tags', '/tags.html'),
+             ('Sitemap', '/sitemap.xml'),
+             ('About me', '/about.html'),)
+
 
 #locale
 TIMEZONE = 'Europe/Paris'
@@ -44,6 +58,7 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
+
 MARKDOWN = {
     'extension_configs': {
         'markdown.extensions.codehilite': {'css_class': 'highlight'},
@@ -53,14 +68,18 @@ MARKDOWN = {
     'output_format': 'html5',
 }
 
-USE_FOLDER_AS_CATEGORY = False
-MAIN_MENU = True
-HOME_HIDE_TAGS = False
+DELETE_OUTPUT_DIRECTORY = False
+PATH = 'content'
+STATIC_PATHS = ['img', 'static', 'pdf']
+DEFAULT_METADATA = {
+    'status': 'draft',
+}
 
-MENUITEMS = (('Archives', '/archives.html'),
-             ('Categories', '/categories.html'),
-             ('Tags', '/tags.html'),
-             ('Sitemap', '/sitemap.xml'),)
+FAVICON = 'img/favicon.ico'
+CUSTOM_CSS = 'static/custom.css'
+PLUGIN_PATHS = ['/home/oguiter/Devel/GITHUB/Blog/pelican-extend/pelican-plugins/']
+
+PLUGINS = ['sitemap']
 
 SITEMAP = {
     'format': 'xml',
@@ -77,17 +96,8 @@ SITEMAP = {
 }
 
 
-DELETE_OUTPUT_DIRECTORY = False
-PATH = 'content'
-STATIC_PATHS = ['img', 'static', 'pdf']
-DEFAULT_METADATA = {
-    'status': 'draft',
-}
-
-FAVICON = 'img/favicon.ico'
-CUSTOM_CSS = 'static/custom.css'
-PLUGIN_PATHS = ['../pelican-extend/pelican-plugins']
-
+##THEME = 'pelican-striped-html5up'
+##PLUGINS = ['neighbors']
 # theme area..
 THEME = "Flex"
 # add theme specific vars
