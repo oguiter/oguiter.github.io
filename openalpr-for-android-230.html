@@ -35,12 +35,12 @@
 <!-- End Google Analytics -->
 
 <meta name="author" content="Olivier Guiter" />
-<meta name="description" content="Well, time to use the &#34;english&#34; language...sounds better this morning :) Why would you like to build OpenAlpr for Android from scratch ? ...maybe because you won&#39;t be able to find a suitable set of files, up to date. The famous work done by Sandro Machado here (https://github.com/SandroMachado …" />
+<meta name="description" content="Well, time to use the &#34;english&#34; language...sounds better this morning :) Why would you like to build OpenAlpr for Android from scratch ? ...maybe because you won&#39;t be able to find a suitable set of files, up to date. The famous work done by Sandro Machado (https://github.com/SandroMachado/openalpr-android …" />
 <meta name="keywords" content="#openalpr, #android, #opencv">
 
 <meta property="og:site_name" content="Olivier's Tech Blog"/>
 <meta property="og:title" content="OpenAlpr For Android 2.3.0"/>
-<meta property="og:description" content="Well, time to use the &#34;english&#34; language...sounds better this morning :) Why would you like to build OpenAlpr for Android from scratch ? ...maybe because you won&#39;t be able to find a suitable set of files, up to date. The famous work done by Sandro Machado here (https://github.com/SandroMachado …"/>
+<meta property="og:description" content="Well, time to use the &#34;english&#34; language...sounds better this morning :) Why would you like to build OpenAlpr for Android from scratch ? ...maybe because you won&#39;t be able to find a suitable set of files, up to date. The famous work done by Sandro Machado (https://github.com/SandroMachado/openalpr-android …"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./openalpr-for-android-230.html"/>
 <meta property="og:type" content="article"/>
@@ -103,7 +103,7 @@
 
   <div>
     <p>Well, time to use the "english" language...sounds better this morning :)</p>
-<p>Why would you like to build OpenAlpr for Android from scratch ? ...maybe because you won't be able to find a suitable set of files, up to date. The famous work done by Sandro Machado here (https://github.com/SandroMachado/openalpr-android) is based on version 1.1.2 ...and OpenAlpr is now on 2.3.0</p>
+<p>Why would you like to build OpenAlpr for Android from scratch ? ...maybe because you won't be able to find a suitable set of files, up to date. The famous work done by Sandro Machado (<a href="https://github.com/SandroMachado/openalpr-android">https://github.com/SandroMachado/openalpr-android</a>) is based on version 1.1.2 ...and OpenAlpr is now on 2.3.0</p>
 <p>It is also a funny game to master all the steps!</p>
 <h1>Android SDK setup</h1>
 <p>Because of recent changes in Android tools (some of them disappeared between release 25 and 26), we have to install an older release. But i don't want to contaminate my existing setup !!! So, install everything in a different directory</p>
@@ -124,8 +124,7 @@ unzip tools_r25.2.3-linux.zip
 
 
 <h1>Java Oracle install</h1>
-<p>Get Java (e.g.: Linux x64) from  oracle.com ( Official link is: 
-<code>http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</code>)</p>
+<p>Get Java (e.g.: Linux x64) from  oracle.com ( Official link is: ( <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a>)</p>
 <p>or, if you don't want to go thru your browser (e.g.: on a build server), you can direct download with:</p>
 <div class="highlight"><pre><span></span>wget --no-cookies --no-check-certificate --header <span class="se">\</span>
 <span class="s2">&quot;Cookie: oraclelicense=accept-securebackup-cookie&quot;</span> <span class="se">\</span>
@@ -141,15 +140,15 @@ sudo tar xzf jdk-8u161-linux-x64.tar.gz -C /usr/lib/jvm
 
 <p>(You can check the whole Java path (something like /usr/lib/jvm/jdk1.8.0_161 ))</p>
 <h1>Code: Build OpenCV4Android</h1>
-<p>Sure, i could use the official one (https://opencv.org/platforms/android/) ... but remember "funny", "master all the steps"...</p>
-<h2>OpenCV sources:</h2>
+<p>Sure, i could use the official one (<a href="https://opencv.org/platforms/android/">https://opencv.org/platforms/android/</a>) ... but remember "funny", "master all the steps"...</p>
+<h2>OpenCV sources</h2>
 <p>Create your work/project/test/sandbox as a directory:</p>
 <div class="highlight"><pre><span></span>mkdir <span class="nv">$HOME</span>/MyWork
 <span class="nb">cd</span> <span class="nv">$HOME</span>/MyWork
 </pre></div>
 
 
-<p>Download the source from the official repo 
+<p>Download the source from the official repo
 ( tested at git clone at e268fdc0ed89be11ce2e6d7a8832254fc4b67ccc  (master 20180215))</p>
 <div class="highlight"><pre><span></span>git clone https://github.com/opencv/opencv
 mkdir -p opencv/build
@@ -260,9 +259,9 @@ cmake <span class="se">\</span>
 <p>(Check the following script: <a href="./static/build_all_from_git.sh">build_all_from_git.sh</a>)</p>
 <p>reference:</p>
 <ul>
-<li>https://github.com/openalpr/openalpr/wiki/Android-compilation</li>
-<li>https://gist.github.com/jav974/072425f14927e6ca2c7a4439d8ac5457</li>
-<li>https://github.com/SandroMachado/openalpr-android</li>
+<li><a href="https://github.com/openalpr/openalpr/wiki/Android-compilation">https://github.com/openalpr/openalpr/wiki/Android-compilation</a></li>
+<li><a href="https://gist.github.com/jav974/072425f14927e6ca2c7a4439d8ac5457">https://gist.github.com/jav974/072425f14927e6ca2c7a4439d8ac5457</a></li>
+<li><a href="https://github.com/SandroMachado/openalpr-android">https://github.com/SandroMachado/openalpr-android</a></li>
 </ul>
   </div>
   <div class="tag-cloud">
