@@ -5,29 +5,36 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oguiter.github.io/</loc>
-<lastmod>2018-02-17T11:25:51-00:00</lastmod>
+<lastmod>2018-02-17T13:18:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>https://oguiter.github.io/archives.html</loc>
-<lastmod>2018-02-17T11:25:51-00:00</lastmod>
+<lastmod>2018-02-17T13:18:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>https://oguiter.github.io/tags.html</loc>
-<lastmod>2018-02-17T11:25:51-00:00</lastmod>
+<lastmod>2018-02-17T13:18:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>https://oguiter.github.io/categories.html</loc>
-<lastmod>2018-02-17T11:25:51-00:00</lastmod>
+<lastmod>2018-02-17T13:18:10-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>https://oguiter.github.io/openalpr-for-android-230.html</loc>
+<lastmod>2018-02-17T14:00:00+01:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
 
@@ -53,6 +60,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://oguiter.github.io/category/devel.html</loc>
+<lastmod>2018-02-17T14:00:00+00:09</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
 <loc>https://oguiter.github.io/category/general.html</loc>
 <lastmod>2018-01-21T14:10:00+00:09</lastmod>
 <changefreq>daily</changefreq>
@@ -67,14 +81,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://oguiter.github.io/tag/about.html</loc>
+<loc>https://oguiter.github.io/tag/opencv.html</loc>
+<lastmod>2018-02-17T14:00:00+00:09</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>https://oguiter.github.io/tag/resume.html</loc>
 <lastmod>2018-01-01T14:10:00+00:09</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
-<loc>https://oguiter.github.io/tag/cv.html</loc>
+<loc>https://oguiter.github.io/tag/blog.html</loc>
+<lastmod>2018-01-21T14:10:00+00:09</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>https://oguiter.github.io/tag/android.html</loc>
+<lastmod>2018-02-17T14:00:00+00:09</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>https://oguiter.github.io/tag/openalpr.html</loc>
+<lastmod>2018-02-17T14:00:00+00:09</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>https://oguiter.github.io/tag/about.html</loc>
 <lastmod>2018-01-01T14:10:00+00:09</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
@@ -88,14 +130,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://oguiter.github.io/tag/blog.html</loc>
-<lastmod>2018-01-21T14:10:00+00:09</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.6</priority>
-</url>
-
-<url>
-<loc>https://oguiter.github.io/tag/resume.html</loc>
+<loc>https://oguiter.github.io/tag/cv.html</loc>
 <lastmod>2018-01-01T14:10:00+00:09</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
@@ -103,7 +138,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oguiter.github.io/author/olivier-guiter.html</loc>
-<lastmod>2018-01-21T14:10:00+00:09</lastmod>
+<lastmod>2018-02-17T14:00:00+00:09</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>

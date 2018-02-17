@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
+
+    <link href="./static/custom.css" rel="stylesheet">
+
+
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-112326394-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Olivier Guiter" />
+<meta name="description" content="Well, time to use the &#34;english&#34; language...sounds better this morning :) Why would you like to build OpenAlpr for Android from scratch ? ...maybe because you won&#39;t be able to find a suitable set of files, up to date. The famous work done by Sandro Machado here (https://github.com/SandroMachado …" />
+<meta name="keywords" content="#openalpr, #android, #opencv">
+
+<meta property="og:site_name" content="Olivier's Tech Blog"/>
+<meta property="og:title" content="OpenAlpr For Android 2.3.0"/>
+<meta property="og:description" content="Well, time to use the &#34;english&#34; language...sounds better this morning :) Why would you like to build OpenAlpr for Android from scratch ? ...maybe because you won&#39;t be able to find a suitable set of files, up to date. The famous work done by Sandro Machado here (https://github.com/SandroMachado …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./openalpr-for-android-230.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2018-02-17 14:00:00+01:00"/>
+<meta property="article:modified_time" content="2018-02-17 14:00:00+01:00"/>
+<meta property="article:author" content="./author/olivier-guiter.html">
+<meta property="article:section" content="Devel"/>
+<meta property="article:tag" content="#openalpr"/>
+<meta property="article:tag" content="#android"/>
+<meta property="article:tag" content="#opencv"/>
+<meta property="og:image" content="img/logo_site.jpg">
+
+  <title>Olivier's Tech Blog &ndash; OpenAlpr For Android 2.3.0</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href=".">
+        <img src="img/logo_site.jpg" alt="" title="">
+      </a>
+      <h1><a href="."></a></h1>
+
+<p>Et pour quelques octets de plus...</p>
+
+      <ul class="social">
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/oguiter" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/oguiter" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href=".">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+      <a href="/sitemap.xml">Sitemap</a>
+      <a href="/about.html">About me</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="openalpr-for-android-230">OpenAlpr For Android 2.3.0</h1>
+    <p>
+          Posted on sam. 17 février 2018 in <a href="./category/devel.html">Devel</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Well, time to use the "english" language...sounds better this morning :)</p>
+<p>Why would you like to build OpenAlpr for Android from scratch ? ...maybe because you won't be able to find a suitable set of files, up to date. The famous work done by Sandro Machado here (https://github.com/SandroMachado/openalpr-android) is based on version 1.1.2 ...and OpenAlpr is now on 2.3.0</p>
+<p>It is also a funny game to master all the steps!</p>
+<h1>Android SDK setup</h1>
+<p>Because of recent changes in Android tools (some of them disappeared between release 25 and 26), we have to install an older release. But i don't want to contaminate my existing setup !!! So, install everything in a different directory</p>
+<div class="highlight"><pre><span></span>mkdir -p $HOME/Android/Sdk25
+cd $HOME/Android/Sdk25
+</pre></div>
+
+
+<p>Get the zip file !!! This version is MANDATORY</p>
+<div class="highlight"><pre><span></span>wget https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
+unzip tools_r25.2.3-linux.zip
+</pre></div>
+
+
+<p>And install missing tools, with the SDK Manager:</p>
+<div class="highlight"><pre><span></span>./tools/bin/sdkmanager &quot;platform-tools&quot; &quot;build-tools;27.0.3&quot; &quot;platforms;android-27&quot; &quot;ndk-bundle&quot;
+</pre></div>
+
+
+<h1>Java Oracle install</h1>
+<p>Get Java (e.g.: Linux x64) from  oracle.com ( Official link is: 
+<code>http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</code>)</p>
+<p>or, if you don't want to go thru your browser (e.g.: on a build server), you can direct download with:</p>
+<div class="highlight"><pre><span></span>wget --no-cookies --no-check-certificate --header \
+&quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; \
+&quot;http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz&quot;
+</pre></div>
+
+
+<p>Then, we can install it to a usual directory:</p>
+<div class="highlight"><pre><span></span>sudo mkdir -p /usr/lib/jvm
+sudo tar xzf jdk-8u161-linux-x64.tar.gz -C /usr/lib/jvm
+</pre></div>
+
+
+<p>(You can check the whole Java path (something like /usr/lib/jvm/jdk1.8.0_161 ))</p>
+<h1>Code: Build OpenCV4Android</h1>
+<p>Sure, i could use the official one (https://opencv.org/platforms/android/) ... but remember "funny", "master all the steps"...</p>
+<h2>OpenCV sources:</h2>
+<p>Create your work/project/test/sandbox as a directory:</p>
+<div class="highlight"><pre><span></span>mkdir $HOME/MyWork
+cd $HOME/MyWork
+</pre></div>
+
+
+<p>Download the source from the official repo 
+( tested at git clone at e268fdc0ed89be11ce2e6d7a8832254fc4b67ccc  (master 20180215))</p>
+<div class="highlight"><pre><span></span>git clone https://github.com/opencv/opencv
+mkdir -p opencv/build
+</pre></div>
+
+
+<p>Start the build process, and take a coffee break !</p>
+<div class="highlight"><pre><span></span><span class="cp">../platforms/android/build_sdk.py --sdk_path=$HOME/Android/Sdk25 --ndk_path=$HOME/Android/Sdk25/ndk-bundle --config=&quot;../platforms/android/ndk-16.config.py&quot;</span>
+</pre></div>
+
+
+<p>As we are building with ndk R16, only the following configurations will be generated:</p>
+<p><code>"armeabi-v7a", "armeabi-v7a with NEON", "armeabi", "arm64-v8a", "x86_64", "x86")</code>  </p>
+<p>All the generated library are in </p>
+<p><code>$HOME/DevelOP/opencv/build/OpenCV-android-sdk</code></p>
+<p>I let you investigate how to cutomize the build process (e.g.: disable examples ...)</p>
+<h1>Build  Tesseract for Android</h1>
+<p>As usual, get the source</p>
+<div class="highlight"><pre><span></span>cd $HOME/MyWork
+git clone --recursive https://github.com/rmtheis/tess-two.git tess2
+cd tess2
+</pre></div>
+
+
+<p>Prepare the properties for Android build:</p>
+<div class="highlight"><pre><span></span>echo &quot;sdk.dir=$HOME/Android/Sdk25
+ndk.dir=$HOME/Android/Sdk25/ndk-bundle&quot; &gt; local.properties
+</pre></div>
+
+
+<p>And let's rock !</p>
+<div class="highlight"><pre><span></span>./gradlew assemble
+</pre></div>
+
+
+<p>( ! Tesseract for Android is buggy for x86_64)</p>
+<h1>What about OpenALPR for Android ?</h1>
+<p>Same steps:</p>
+<div class="highlight"><pre><span></span>cd $HOME/MyWork
+git clone https://github.com/jav974/openalpr.git openalpr
+mkdir openalpr/android-build
+</pre></div>
+
+
+<p>Don't forget to associate Tesseract libs:</p>
+<div class="highlight"><pre><span></span>export TESSERACT_SRC_DIR=$HOME/DevelOP/tess2/tess-two/jni/com_googlecode_tesseract_android/src
+</pre></div>
+
+
+<p>just in case of rebuild...</p>
+<div class="highlight"><pre><span></span>rm -rf $HOME/DevelOP/openalpr/src/openalpr/ocr/tesseract
+mkdir $HOME/DevelOP/openalpr/src/openalpr/ocr/tesseract
+cp $TESSERACT_SRC_DIR/**/*.h $HOME/DevelOP/openalpr/src/openalpr/ocr/tesseract
+</pre></div>
+
+
+<p>Move to the following directory:</p>
+<div class="highlight"><pre><span></span>cd $HOME/MyWork/openalpr/android-build
+</pre></div>
+
+
+<p>The supported flavors could be "armeabi" "armeabi-v7a" "arm64-v8a" "x86" "x86_64" but, because of others libs limitations, we only keep "armeabi" "armeabi-v7a" "arm64-v8a" "x86"</p>
+<p>Here's how to generate CMake files for building armeabi-v7a libs:</p>
+<div class="highlight"><pre><span></span>export TESSERACT_LIB_DIR=$HOME/DevelOP/tess2/tess-two//libs/armeabi-v7a
+export arch=&quot;arm&quot;
+export lib=&quot;lib&quot;
+
+rm -rf armeabi-v7a &amp;&amp; mkdir armeabi-v7a
+cd armeabi-v7a
+
+cmake \
+    -DANDROID_TOOLCHAIN=clang \
+    -DCMAKE_ANDROID_NDK_TOOLCHAIN_VERSION=clang \
+    -DCMAKE_SHARED_LINKER_FLAGS=&quot;-Wl,--exclude-libs,libippicv.a -Wl,--exclude-libs,libippiw.a&quot; \
+    -DCMAKE_TOOLCHAIN_FILE=$HOME/Android/Sdk25/ndk-bundle/build/cmake/android.toolchain.cmake \
+    -DANDROID_NDK=$HOME/Android/Sdk25/ndk-bundle \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DANDROID_PLATFORM=&quot;android-21&quot; \
+    -DANDROID_ABI=&quot;armeabi-v7a&quot; \
+    -DANDROID_STL=gnustl_static \
+    -DANDROID_CPP_FEATURES=&quot;rtti exceptions&quot; \
+    -DTesseract_INCLUDE_BASEAPI_DIR=$TESSERACT_SRC_DIR/api \
+    -DTesseract_INCLUDE_CCSTRUCT_DIR=$TESSERACT_SRC_DIR/ccstruct \
+    -DTesseract_INCLUDE_CCMAIN_DIR=$TESSERACT_SRC_DIR/ccmain \
+    -DTesseract_INCLUDE_CCUTIL_DIR=$TESSERACT_SRC_DIR/ccutil \
+    -DTesseract_LIB=$TESSERACT_LIB_DIR/libtess.so \
+    -DLeptonica_LIB=$TESSERACT_LIB_DIR/liblept.so \
+    -DOpenCV_DIR=$HOME/DevelOP/opencv/build/OpenCV-android-sdk/sdk/native/jni \
+    -DPngt_LIB=$TESSERACT_LIB_DIR/libpngt.so \
+    -DJpgt_LIB=$TESSERACT_LIB_DIR/libjpgt.so \
+    -DJnigraphics_LIB=$HOME/Android/Sdk25/ndk-bundle/platforms/android-21/arch-arm/usr/lib/libjnigraphics.so \
+    -DANDROID_ARM_MODE=arm \
+    -DJAVA_AWT_LIBRARY=/usr/lib/jvm/jdk1.8.0_161/jre/lib/amd64 \
+    -DJAVA_JVM_LIBRARY=/usr/lib/jvm/jdk1.8.0_161/jre/lib/amd64 \
+    -DJAVA_INCLUDE_PATH=/usr/lib/jvm/jdk1.8.0_161/include \
+    -DJAVA_INCLUDE_PATH2=/usr/lib/jvm/jdk1.8.0_161/include/linux \
+    -DJAVA_AWT_INCLUDE_PATH=/usr/lib/jvm/jdk1.8.0_161/include \
+    ../../src/
+</pre></div>
+
+
+<p>Run for the build...</p>
+<div class="highlight"><pre><span></span>cmake --build . -- -j$(nproc)
+</pre></div>
+
+
+<p>et voilà !</p>
+<p>(Check the following script: <a href="./static/build_all_from_git.sh">build_all_from_git.sh </a>)</p>
+<p>reference:</p>
+<ul>
+<li>https://github.com/openalpr/openalpr/wiki/Android-compilation</li>
+<li>https://gist.github.com/jav974/072425f14927e6ca2c7a4439d8ac5457</li>
+<li>https://github.com/SandroMachado/openalpr-android</li>
+</ul>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="./tag/openalpr.html">#openalpr</a>
+      <a href="./tag/android.html">#android</a>
+      <a href="./tag/opencv.html">#opencv</a>
+    </p>
+  </div>
+
+
+
+    <div class="addthis_relatedposts_inline">
+
+
+</article>
+
+    <footer>
+<p>
+  &copy; Olivier Guiter 2017 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+         src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Olivier's Tech Blog ",
+  "url" : ".",
+  "image": "img/logo_site.jpg",
+  "description": "Olivier Guiter's Thoughts and Writings"
+}
+</script>
+
+</body>
+</html>
