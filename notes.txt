@@ -1,0 +1,5 @@
+source env/bin/activate
+
+// Do some changes
+
+./publish.sh "This is a commit message"
