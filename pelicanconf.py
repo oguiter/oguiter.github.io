@@ -5,8 +5,8 @@ from __future__ import unicode_literals
 AUTHOR = 'Olivier Guiter'
 SITENAME = "Olivier's Tech Blog"
 
-SITEURL = 'http://oguiter.github.io'
-RELATIVE_URLS = False
+SITEURL = 'https://oguiter.github.io'
+RELATIVE_URLS = True
 SITESUBTITLE = 'Et pour quelques octets de plus...'
 SITEDESCRIPTION = '%s\'s Thoughts and Writings' % AUTHOR
 SITELOGO = 'img/logo_site.jpg'
