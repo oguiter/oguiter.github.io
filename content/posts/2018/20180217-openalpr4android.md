@@ -7,7 +7,7 @@ Tags: #openalpr, #android, #opencv
 
 Well, time to use the "english" language...sounds better this morning :)
 
-Why would you like to build OpenAlpr for Android from scratch ? ...maybe because you won't be able to find a suitable set of files, up to date. The famous work done by Sandro Machado here (https://github.com/SandroMachado/openalpr-android) is based on version 1.1.2 ...and OpenAlpr is now on 2.3.0
+Why would you like to build OpenAlpr for Android from scratch ? ...maybe because you won't be able to find a suitable set of files, up to date. The famous work done by Sandro Machado ([https://github.com/SandroMachado/openalpr-android](https://github.com/SandroMachado/openalpr-android)) is based on version 1.1.2 ...and OpenAlpr is now on 2.3.0
 
 It is also a funny game to master all the steps!
 
@@ -35,10 +35,7 @@ And install missing tools, with the SDK Manager:
 
 # Java Oracle install
 
-Get Java (e.g.: Linux x64) from  oracle.com ( Official link is: 
-`
-http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-`)
+Get Java (e.g.: Linux x64) from  oracle.com ( Official link is: ( [http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html))
 
 or, if you don't want to go thru your browser (e.g.: on a build server), you can direct download with:
 
@@ -59,9 +56,9 @@ sudo tar xzf jdk-8u161-linux-x64.tar.gz -C /usr/lib/jvm
 
 # Code: Build OpenCV4Android
 
-Sure, i could use the official one (https://opencv.org/platforms/android/) ... but remember "funny", "master all the steps"...
+Sure, i could use the official one ([https://opencv.org/platforms/android/](https://opencv.org/platforms/android/)) ... but remember "funny", "master all the steps"...
 
-## OpenCV sources:
+## OpenCV sources
 
 Create your work/project/test/sandbox as a directory:
 
@@ -70,7 +67,7 @@ mkdir $HOME/MyWork
 cd $HOME/MyWork
 ```
 
-Download the source from the official repo 
+Download the source from the official repo
 ( tested at git clone at e268fdc0ed89be11ce2e6d7a8832254fc4b67ccc  (master 20180215))
 
 ``` bash
@@ -205,6 +202,6 @@ et voilà !
 
 reference:
 
-- https://github.com/openalpr/openalpr/wiki/Android-compilation
-- https://gist.github.com/jav974/072425f14927e6ca2c7a4439d8ac5457
-- https://github.com/SandroMachado/openalpr-android
+- <https://github.com/openalpr/openalpr/wiki/Android-compilation>
+- <https://gist.github.com/jav974/072425f14927e6ca2c7a4439d8ac5457>
+- <https://github.com/SandroMachado/openalpr-android>
