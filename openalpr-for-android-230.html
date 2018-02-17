@@ -107,8 +107,8 @@
 <p>It is also a funny game to master all the steps!</p>
 <h1>Android SDK setup</h1>
 <p>Because of recent changes in Android tools (some of them disappeared between release 25 and 26), we have to install an older release. But i don't want to contaminate my existing setup !!! So, install everything in a different directory</p>
-<div class="highlight"><pre><span></span>mkdir -p $HOME/Android/Sdk25
-cd $HOME/Android/Sdk25
+<div class="highlight"><pre><span></span>mkdir -p <span class="nv">$HOME</span>/Android/Sdk25
+<span class="nb">cd</span> <span class="nv">$HOME</span>/Android/Sdk25
 </pre></div>
 
 
@@ -119,7 +119,7 @@ unzip tools_r25.2.3-linux.zip
 
 
 <p>And install missing tools, with the SDK Manager:</p>
-<div class="highlight"><pre><span></span>./tools/bin/sdkmanager &quot;platform-tools&quot; &quot;build-tools;27.0.3&quot; &quot;platforms;android-27&quot; &quot;ndk-bundle&quot;
+<div class="highlight"><pre><span></span>./tools/bin/sdkmanager <span class="s2">&quot;platform-tools&quot;</span> <span class="s2">&quot;build-tools;27.0.3&quot;</span> <span class="s2">&quot;platforms;android-27&quot;</span> <span class="s2">&quot;ndk-bundle&quot;</span>
 </pre></div>
 
 
@@ -127,9 +127,9 @@ unzip tools_r25.2.3-linux.zip
 <p>Get Java (e.g.: Linux x64) from  oracle.com ( Official link is: 
 <code>http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</code>)</p>
 <p>or, if you don't want to go thru your browser (e.g.: on a build server), you can direct download with:</p>
-<div class="highlight"><pre><span></span>wget --no-cookies --no-check-certificate --header \
-&quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; \
-&quot;http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz&quot;
+<div class="highlight"><pre><span></span>wget --no-cookies --no-check-certificate --header <span class="se">\</span>
+<span class="s2">&quot;Cookie: oraclelicense=accept-securebackup-cookie&quot;</span> <span class="se">\</span>
+<span class="s2">&quot;http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz&quot;</span>
 </pre></div>
 
 
@@ -144,8 +144,8 @@ sudo tar xzf jdk-8u161-linux-x64.tar.gz -C /usr/lib/jvm
 <p>Sure, i could use the official one (https://opencv.org/platforms/android/) ... but remember "funny", "master all the steps"...</p>
 <h2>OpenCV sources:</h2>
 <p>Create your work/project/test/sandbox as a directory:</p>
-<div class="highlight"><pre><span></span>mkdir $HOME/MyWork
-cd $HOME/MyWork
+<div class="highlight"><pre><span></span>mkdir <span class="nv">$HOME</span>/MyWork
+<span class="nb">cd</span> <span class="nv">$HOME</span>/MyWork
 </pre></div>
 
 
@@ -157,26 +157,26 @@ mkdir -p opencv/build
 
 
 <p>Start the build process, and take a coffee break !</p>
-<div class="highlight"><pre><span></span><span class="cp">../platforms/android/build_sdk.py --sdk_path=$HOME/Android/Sdk25 --ndk_path=$HOME/Android/Sdk25/ndk-bundle --config=&quot;../platforms/android/ndk-16.config.py&quot;</span>
+<div class="highlight"><pre><span></span>../platforms/android/build_sdk.py --sdk_path<span class="o">=</span><span class="nv">$HOME</span>/Android/Sdk25 --ndk_path<span class="o">=</span><span class="nv">$HOME</span>/Android/Sdk25/ndk-bundle --config<span class="o">=</span><span class="s2">&quot;../platforms/android/ndk-16.config.py&quot;</span>
 </pre></div>
 
 
 <p>As we are building with ndk R16, only the following configurations will be generated:</p>
-<p><code>"armeabi-v7a", "armeabi-v7a with NEON", "armeabi", "arm64-v8a", "x86_64", "x86")</code>  </p>
-<p>All the generated library are in </p>
-<p><code>$HOME/DevelOP/opencv/build/OpenCV-android-sdk</code></p>
+<p><code>"armeabi-v7a", "armeabi-v7a with NEON", "armeabi", "arm64-v8a", "x86_64", "x86")</code></p>
+<p>All the generated library are in</p>
+<p><code>$HOME/MyWork/opencv/build/OpenCV-android-sdk</code></p>
 <p>I let you investigate how to cutomize the build process (e.g.: disable examples ...)</p>
 <h1>Build  Tesseract for Android</h1>
 <p>As usual, get the source</p>
-<div class="highlight"><pre><span></span>cd $HOME/MyWork
+<div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>/MyWork
 git clone --recursive https://github.com/rmtheis/tess-two.git tess2
-cd tess2
+<span class="nb">cd</span> tess2
 </pre></div>
 
 
 <p>Prepare the properties for Android build:</p>
-<div class="highlight"><pre><span></span>echo &quot;sdk.dir=$HOME/Android/Sdk25
-ndk.dir=$HOME/Android/Sdk25/ndk-bundle&quot; &gt; local.properties
+<div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;sdk.dir=</span><span class="nv">$HOME</span><span class="s2">/Android/Sdk25</span>
+<span class="s2">ndk.dir=</span><span class="nv">$HOME</span><span class="s2">/Android/Sdk25/ndk-bundle&quot;</span> &gt; local.properties
 </pre></div>
 
 
@@ -188,76 +188,76 @@ ndk.dir=$HOME/Android/Sdk25/ndk-bundle&quot; &gt; local.properties
 <p>( ! Tesseract for Android is buggy for x86_64)</p>
 <h1>What about OpenALPR for Android ?</h1>
 <p>Same steps:</p>
-<div class="highlight"><pre><span></span>cd $HOME/MyWork
+<div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>/MyWork
 git clone https://github.com/jav974/openalpr.git openalpr
 mkdir openalpr/android-build
 </pre></div>
 
 
 <p>Don't forget to associate Tesseract libs:</p>
-<div class="highlight"><pre><span></span>export TESSERACT_SRC_DIR=$HOME/DevelOP/tess2/tess-two/jni/com_googlecode_tesseract_android/src
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TESSERACT_SRC_DIR</span><span class="o">=</span><span class="nv">$HOME</span>/MyWork/tess2/tess-two/jni/com_googlecode_tesseract_android/src
 </pre></div>
 
 
 <p>just in case of rebuild...</p>
-<div class="highlight"><pre><span></span>rm -rf $HOME/DevelOP/openalpr/src/openalpr/ocr/tesseract
-mkdir $HOME/DevelOP/openalpr/src/openalpr/ocr/tesseract
-cp $TESSERACT_SRC_DIR/**/*.h $HOME/DevelOP/openalpr/src/openalpr/ocr/tesseract
+<div class="highlight"><pre><span></span>rm -rf <span class="nv">$HOME</span>/MyWork/openalpr/src/openalpr/ocr/tesseract
+mkdir <span class="nv">$HOME</span>/MyWork/openalpr/src/openalpr/ocr/tesseract
+cp <span class="nv">$TESSERACT_SRC_DIR</span>/**/*.h <span class="nv">$HOME</span>/MyWork/openalpr/src/openalpr/ocr/tesseract
 </pre></div>
 
 
 <p>Move to the following directory:</p>
-<div class="highlight"><pre><span></span>cd $HOME/MyWork/openalpr/android-build
+<div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>/MyWork/openalpr/android-build
 </pre></div>
 
 
 <p>The supported flavors could be "armeabi" "armeabi-v7a" "arm64-v8a" "x86" "x86_64" but, because of others libs limitations, we only keep "armeabi" "armeabi-v7a" "arm64-v8a" "x86"</p>
 <p>Here's how to generate CMake files for building armeabi-v7a libs:</p>
-<div class="highlight"><pre><span></span>export TESSERACT_LIB_DIR=$HOME/DevelOP/tess2/tess-two//libs/armeabi-v7a
-export arch=&quot;arm&quot;
-export lib=&quot;lib&quot;
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TESSERACT_LIB_DIR</span><span class="o">=</span><span class="nv">$HOME</span>/MyWork/tess2/tess-two//libs/armeabi-v7a
+<span class="nb">export</span> <span class="nv">arch</span><span class="o">=</span><span class="s2">&quot;arm&quot;</span>
+<span class="nb">export</span> <span class="nv">lib</span><span class="o">=</span><span class="s2">&quot;lib&quot;</span>
 
-rm -rf armeabi-v7a &amp;&amp; mkdir armeabi-v7a
-cd armeabi-v7a
+rm -rf armeabi-v7a <span class="o">&amp;&amp;</span> mkdir armeabi-v7a
+<span class="nb">cd</span> armeabi-v7a
 
-cmake \
-    -DANDROID_TOOLCHAIN=clang \
-    -DCMAKE_ANDROID_NDK_TOOLCHAIN_VERSION=clang \
-    -DCMAKE_SHARED_LINKER_FLAGS=&quot;-Wl,--exclude-libs,libippicv.a -Wl,--exclude-libs,libippiw.a&quot; \
-    -DCMAKE_TOOLCHAIN_FILE=$HOME/Android/Sdk25/ndk-bundle/build/cmake/android.toolchain.cmake \
-    -DANDROID_NDK=$HOME/Android/Sdk25/ndk-bundle \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DANDROID_PLATFORM=&quot;android-21&quot; \
-    -DANDROID_ABI=&quot;armeabi-v7a&quot; \
-    -DANDROID_STL=gnustl_static \
-    -DANDROID_CPP_FEATURES=&quot;rtti exceptions&quot; \
-    -DTesseract_INCLUDE_BASEAPI_DIR=$TESSERACT_SRC_DIR/api \
-    -DTesseract_INCLUDE_CCSTRUCT_DIR=$TESSERACT_SRC_DIR/ccstruct \
-    -DTesseract_INCLUDE_CCMAIN_DIR=$TESSERACT_SRC_DIR/ccmain \
-    -DTesseract_INCLUDE_CCUTIL_DIR=$TESSERACT_SRC_DIR/ccutil \
-    -DTesseract_LIB=$TESSERACT_LIB_DIR/libtess.so \
-    -DLeptonica_LIB=$TESSERACT_LIB_DIR/liblept.so \
-    -DOpenCV_DIR=$HOME/DevelOP/opencv/build/OpenCV-android-sdk/sdk/native/jni \
-    -DPngt_LIB=$TESSERACT_LIB_DIR/libpngt.so \
-    -DJpgt_LIB=$TESSERACT_LIB_DIR/libjpgt.so \
-    -DJnigraphics_LIB=$HOME/Android/Sdk25/ndk-bundle/platforms/android-21/arch-arm/usr/lib/libjnigraphics.so \
-    -DANDROID_ARM_MODE=arm \
-    -DJAVA_AWT_LIBRARY=/usr/lib/jvm/jdk1.8.0_161/jre/lib/amd64 \
-    -DJAVA_JVM_LIBRARY=/usr/lib/jvm/jdk1.8.0_161/jre/lib/amd64 \
-    -DJAVA_INCLUDE_PATH=/usr/lib/jvm/jdk1.8.0_161/include \
-    -DJAVA_INCLUDE_PATH2=/usr/lib/jvm/jdk1.8.0_161/include/linux \
-    -DJAVA_AWT_INCLUDE_PATH=/usr/lib/jvm/jdk1.8.0_161/include \
-    ../../src/
+cmake <span class="se">\</span>
+-DANDROID_TOOLCHAIN<span class="o">=</span>clang <span class="se">\</span>
+-DCMAKE_ANDROID_NDK_TOOLCHAIN_VERSION<span class="o">=</span>clang <span class="se">\</span>
+-DCMAKE_SHARED_LINKER_FLAGS<span class="o">=</span><span class="s2">&quot;-Wl,--exclude-libs,libippicv.a -Wl,--exclude-libs,libippiw.a&quot;</span> <span class="se">\</span>
+-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span><span class="nv">$HOME</span>/Android/Sdk25/ndk-bundle/build/cmake/android.toolchain.cmake <span class="se">\</span>
+-DANDROID_NDK<span class="o">=</span><span class="nv">$HOME</span>/Android/Sdk25/ndk-bundle <span class="se">\</span>
+-DCMAKE_BUILD_TYPE<span class="o">=</span>Release <span class="se">\</span>
+-DANDROID_PLATFORM<span class="o">=</span><span class="s2">&quot;android-21&quot;</span> <span class="se">\</span>
+-DANDROID_ABI<span class="o">=</span><span class="s2">&quot;armeabi-v7a&quot;</span> <span class="se">\</span>
+-DANDROID_STL<span class="o">=</span>gnustl_static <span class="se">\</span>
+-DANDROID_CPP_FEATURES<span class="o">=</span><span class="s2">&quot;rtti exceptions&quot;</span> <span class="se">\</span>
+-DTesseract_INCLUDE_BASEAPI_DIR<span class="o">=</span><span class="nv">$TESSERACT_SRC_DIR</span>/api <span class="se">\</span>
+-DTesseract_INCLUDE_CCSTRUCT_DIR<span class="o">=</span><span class="nv">$TESSERACT_SRC_DIR</span>/ccstruct <span class="se">\</span>
+-DTesseract_INCLUDE_CCMAIN_DIR<span class="o">=</span><span class="nv">$TESSERACT_SRC_DIR</span>/ccmain <span class="se">\</span>
+-DTesseract_INCLUDE_CCUTIL_DIR<span class="o">=</span><span class="nv">$TESSERACT_SRC_DIR</span>/ccutil <span class="se">\</span>
+-DTesseract_LIB<span class="o">=</span><span class="nv">$TESSERACT_LIB_DIR</span>/libtess.so <span class="se">\</span>
+-DLeptonica_LIB<span class="o">=</span><span class="nv">$TESSERACT_LIB_DIR</span>/liblept.so <span class="se">\</span>
+-DOpenCV_DIR<span class="o">=</span><span class="nv">$HOME</span>/MyWork/opencv/build/OpenCV-android-sdk/sdk/native/jni <span class="se">\</span>
+-DPngt_LIB<span class="o">=</span><span class="nv">$TESSERACT_LIB_DIR</span>/libpngt.so <span class="se">\</span>
+-DJpgt_LIB<span class="o">=</span><span class="nv">$TESSERACT_LIB_DIR</span>/libjpgt.so <span class="se">\</span>
+-DJnigraphics_LIB<span class="o">=</span><span class="nv">$HOME</span>/Android/Sdk25/ndk-bundle/platforms/android-21/arch-arm/usr/lib/libjnigraphics.so <span class="se">\</span>
+-DANDROID_ARM_MODE<span class="o">=</span>arm <span class="se">\</span>
+-DJAVA_AWT_LIBRARY<span class="o">=</span>/usr/lib/jvm/jdk1.8.0_161/jre/lib/amd64 <span class="se">\</span>
+-DJAVA_JVM_LIBRARY<span class="o">=</span>/usr/lib/jvm/jdk1.8.0_161/jre/lib/amd64 <span class="se">\</span>
+-DJAVA_INCLUDE_PATH<span class="o">=</span>/usr/lib/jvm/jdk1.8.0_161/include <span class="se">\</span>
+-DJAVA_INCLUDE_PATH2<span class="o">=</span>/usr/lib/jvm/jdk1.8.0_161/include/linux <span class="se">\</span>
+-DJAVA_AWT_INCLUDE_PATH<span class="o">=</span>/usr/lib/jvm/jdk1.8.0_161/include <span class="se">\</span>
+../../src/
 </pre></div>
 
 
 <p>Run for the build...</p>
-<div class="highlight"><pre><span></span>cmake --build . -- -j$(nproc)
+<div class="highlight"><pre><span></span>cmake --build . -- -j<span class="k">$(</span>nproc<span class="k">)</span>
 </pre></div>
 
 
 <p>et voilà !</p>
-<p>(Check the following script: <a href="./static/build_all_from_git.sh">build_all_from_git.sh </a>)</p>
+<p>(Check the following script: <a href="./static/build_all_from_git.sh">build_all_from_git.sh</a>)</p>
 <p>reference:</p>
 <ul>
 <li>https://github.com/openalpr/openalpr/wiki/Android-compilation</li>
